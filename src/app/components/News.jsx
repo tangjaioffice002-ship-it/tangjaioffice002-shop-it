@@ -37,7 +37,7 @@ export default function News() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % topSlides.length);
-    }, 4000); // ปรับเวลาให้ช้าลงนิดนึงเพื่อให้อ่านทัน
+    }, 4000); // ปรับเวลาให้ช้าลงนิดนึงเพื่อให้อ่านทันราย
     return () => clearInterval(timer);
   }, []);
 
@@ -90,9 +90,6 @@ export default function News() {
           <h3 className="text-3xl md:text-5xl font-extrabold text-slate-800 tracking-tight">
             ข่าวสารและ<span className="text-emerald-600">กิจกรรม</span>
           </h3>
-          <p className="mt-4 text-slate-500 max-w-xl mx-auto font-light">
-            ติดตามความเคลื่อนไหว กิจกรรมเพื่อสังคม และประกาศสำคัญจาก TANGJAI
-          </p>
         </div>
 
         {/* --- FEATURED NEWS (HERO CARD) --- */}
@@ -156,11 +153,6 @@ export default function News() {
                   เพื่อสร้างความสุข ความอบอุ่น และกระชับความสัมพันธ์ภายในองค์กร 
                   บรรยากาศเต็มไปด้วยรอยยิ้มและความสนุกสนาน
                 </p>
-
-                <button className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:gap-3 transition-all group/btn">
-                  อ่านรายละเอียดเพิ่มเติม
-                  <ArrowRight size={18} className="group-hover/btn:text-emerald-500" />
-                </button>
               </div>
             </div>
           </div>
@@ -236,12 +228,7 @@ export default function News() {
                     {item.title}
                   </h4>
                   
-                  <div className="mt-auto pt-4 border-t border-slate-50 flex justify-between items-center">
-                    <span className="text-xs text-slate-400 font-medium">อ่านต่อ</span>
-                    <div className="w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
-                       <ArrowRight size={12} />
-                    </div>
-                  </div>
+                  
                 </div>
               </article>
             ))}

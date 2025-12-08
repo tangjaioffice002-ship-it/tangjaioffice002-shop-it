@@ -85,7 +85,9 @@ export default function Services() {
             >
               
               {/* Image Section */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50/50 group-hover:bg-emerald-50/30 transition-colors duration-500">
+             <div className="relative aspect-[4/3] w-full overflow-hidden bg-white transition-colors duration-500">
+
+
                 {/* Category Pill - ปรับขยายฟอนต์ */}
                 <div className="absolute top-4 left-4 md:top-5 md:left-5 z-20">
                   <span className="px-3 py-1.5 bg-white/95 backdrop-blur-md border border-slate-200 text-emerald-700 text-xs md:text-sm font-bold rounded-lg shadow-sm uppercase tracking-wide flex items-center gap-1.5">

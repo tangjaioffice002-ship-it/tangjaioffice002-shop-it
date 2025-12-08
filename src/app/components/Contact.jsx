@@ -61,10 +61,10 @@ export default function ContactPage() {
             <h3 className="font-bold text-slate-800 text-xl mb-2">อีเมล</h3>
             <p className="text-slate-400 text-sm mb-4">สำหรับขอใบเสนอราคา</p>
             <a
-              href="mailto:tangjai.office002@gmail.com"
+              href="mailto:tangjaisut441@gmail.com"
               className="text-lg sm:text-xl font-semibold text-emerald-600 hover:text-emerald-700 transition-colors break-all"
             >
-              tangjai.office002@gmail.com
+              tangjaisut441@gmail.com
             </a>
             <div className="mt-4 flex items-center gap-1 text-xs text-slate-500 bg-slate-50 px-3 py-1 rounded-full">
               <Clock size={12} />
@@ -113,17 +113,16 @@ export default function ContactPage() {
 
            {/* Iframe Container */}
            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-slate-100">
-             <iframe
-               title="Tangjai Office Location"
-               className="absolute inset-0 w-full h-full border-0"
-               loading="lazy"
-               allowFullScreen
-               referrerPolicy="no-referrer-when-downgrade"
-               // หมายเหตุ: ตรงนี้คุณควรใส่ Google Maps Embed Link จริงๆ ของบริษัท
-               // ตัวอย่างข้างล่างเป็น Link Placeholder ของ Google Maps
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.733290626081!2d104.860!3d15.190!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDExJzI0LjAiTiAxMDTCsDUxJzM2LjAiRQ!5e0!3m2!1sen!2sth!4v1625641234567!5m2!1sen!2sth"
-             ></iframe>
-           </div>
+  <iframe
+    title="Tangjai Office Location"
+    className="absolute inset-0 w-full h-full border-0"
+    loading="lazy"
+    allowFullScreen
+    referrerPolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3850.1760803857374!2d104.81169757458376!3d15.203527362032334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31168934ea2a73af%3A0xbc9f5816cefce4be!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4l-C4teC5gOC4iOC4i-C4tSDguITguK3guKPguYzguJvguK3guYDguKPguIrguLHguYjguJkg4LiI4LmN4Liy4LiB4Lix4LiU!5e0!3m2!1sth!2sth!4v1765185041201!5m2!1sth!2sth"
+  ></iframe>
+</div>
+
         </div>
 
       </div>

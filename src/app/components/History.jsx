@@ -14,7 +14,7 @@ export default function HistoryPage() {
         </div>
 
         <h1 className="text-4xl font-bold mt-6 text-green-700 tracking-tight">
-          เกี่ยวกับ TANGJAI Corporation
+          เกี่ยวกับ TANGJAI CORPORATION
         </h1>
 
         <p className="text-gray-600 mt-4 max-w-2xl mx-auto leading-relaxed">

@@ -43,32 +43,34 @@ export default function TrustedClients() {
 
   return (
     <section
-  id="TrustedClients"
-  className="py-20 bg-white font-sans"
->
-
+      id="TrustedClients"
+      className="py-20 bg-white font-[Prompt]"
+    >
       {/* Custom Scrollbar */}
       <style>{`
         .custom-scroll::-webkit-scrollbar {
           height: 10px;
         }
         .custom-scroll::-webkit-scrollbar-track {
-          background: #d9d9d9; /* เทาอ่อนจากโลโก้ */
+          background: #e7e7e7;
           border-radius: 10px;
         }
         .custom-scroll::-webkit-scrollbar-thumb {
-          background: #A4C78E; /* เขียวอ่อนเหมือนคำว่า Corporation */
+          background: #019267;
           border-radius: 10px;
-          border: 2px solid #E8E8E8;
+          border: 2px solid #F1F1F1;
         }
         .custom-scroll::-webkit-scrollbar-thumb:hover {
-          background: #8BC34A; /* เขียวสดเหมือนขีดโลโก้ */
+          background: #03A97B;
         }
       `}</style>
 
       <div className="max-w-7xl mx-auto px-6">
-        <h3 className="text-3xl md:text-4xl font-bold text-center mt-20 mb-12 text-gray-700 tracking-wide">
-          ลูกค้าที่ไว้วางใจเรา
+
+        {/* Heading */}
+        <h3 className="text-3xl md:text-4xl font-semibold text-center mt-16 mb-12 
+          text-gray-700 tracking-wide">
+          ลูกค้าที่ <span className="text-[#019267] font-bold">ไว้วางใจ</span> เรา
         </h3>
 
         <div
@@ -88,8 +90,8 @@ export default function TrustedClients() {
                 transition-all duration-300 hover:scale-105 hover:shadow-xl
                 ${
                   activeIndex === index
-                    ? "border-[#8BC34A]" /* ขอบเขียวสด */
-                    : "border-[#C7C7C7]"   /* ขอบเทา */
+                    ? "border-[#019267] shadow-[0_0_15px_rgba(1,146,103,0.25)]"
+                    : "border-[#C7C7C7]"
                 }`}
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
@@ -97,7 +99,7 @@ export default function TrustedClients() {
               <img
                 src={c.logo}
                 alt={c.name}
-                className="max-h-28 sm:max-h-32 md:max-h-36 object-contain"
+                className="max-h-28 sm:max-h-32 md:max-h-36 object-contain transition-all duration-300"
               />
             </div>
           ))}
