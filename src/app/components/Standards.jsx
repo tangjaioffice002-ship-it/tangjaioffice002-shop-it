@@ -100,34 +100,34 @@ export default function Standards() {
       </div>
 
       {/* Modal - Lightbox */}
- {selectedImage && (
-  <div
-    className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 animate-fadeIn p-4"
-    onClick={() => setSelectedImage(null)}
-  >
-    <div className="relative max-w-3xl w-full h-auto flex items-center justify-center">
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 animate-fadeIn p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-3xl w-full h-auto flex items-center justify-center">
 
-      {/* Close Button */}
-      <button
-        className="absolute top-3 right-3 z-50 bg-white/70 hover:bg-white text-slate-900 rounded-full p-2 transition-all"
-        onClick={() => setSelectedImage(null)}
-      >
-        <X size={20} />
-      </button>
+            {/* Close Button */}
+            <button
+              className="absolute top-3 right-3 z-50 bg-white/70 hover:bg-white text-slate-900 rounded-full p-2 transition-all"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={20} />
+            </button>
 
-      {/* Very Thin Light Gold Border (ติดขอบภาพเลย) */}
-      <div className="rounded-lg border-[2px] border-yellow-300">
-        <img
-          src={selectedImage}
-          alt="Full certificate"
-          className="max-w-full max-h-[85vh] object-contain rounded-lg animate-scaleIn"
-          onClick={(e) => e.stopPropagation()}
-        />
-      </div>
+            {/* Very Thin Light Gold Border (ติดขอบภาพเลย) */}
+            <div className="rounded-lg border-[2px] border-yellow-300">
+              <img
+                src={selectedImage}
+                alt="Full certificate"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg animate-scaleIn"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
 
-    </div>
-  </div>
-)}
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         @keyframes fadeIn {
