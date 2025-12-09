@@ -96,37 +96,42 @@ export default function News() {
         <div className="mb-20">
           <div className="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col lg:flex-row border border-slate-100 group">
             
-            {/* Left: Image Slider */}
-            <div className="w-full lg:w-3/5 h-[300px] lg:h-[450px] relative overflow-hidden bg-slate-200">
-              {topSlides.map((src, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                    index === currentSlide ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <img
-                    src={src}
-                    alt="Featured News"
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2000ms]"
-                  />
-                  {/* Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                </div>
-              ))}
+           {/* Left: Image Slider */}
+<div className="w-full lg:w-3/5 h-[250px] sm:h-[300px] md:h-[380px] lg:h-[450px] relative overflow-hidden bg-slate-200">
+  {topSlides.map((src, index) => (
+    <div
+      key={index}
+      className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+        index === currentSlide ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <img
+        src={src}
+        alt="Featured News"
+        className="
+          w-full h-full object-cover 
+          transform transition-transform duration-[2000ms] 
+          group-hover:scale-105
+        "
+        draggable="false"
+      />
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    </div>
+  ))}
 
-              {/* Slide Indicators */}
-              <div className="absolute bottom-6 left-6 flex gap-2 z-10">
-                {topSlides.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      currentSlide === i ? "w-8 bg-emerald-400" : "w-2 bg-white/50"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+  {/* Slide Indicators */}
+  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 flex gap-2 z-10">
+    {topSlides.map((_, i) => (
+      <div
+        key={i}
+        className={`h-1.5 rounded-full transition-all duration-300 ${
+          currentSlide === i ? "w-8 bg-emerald-400" : "w-2 bg-white/50"
+        }`}
+      />
+    ))}
+  </div>
+</div>
 
             {/* Right: Content */}
             <div className="w-full lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center bg-white relative">
