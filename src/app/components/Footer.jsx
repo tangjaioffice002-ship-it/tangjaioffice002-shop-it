@@ -43,8 +43,8 @@ export default function Footer() {
       { label: "หน้าแรก", href: "#home" },
       { label: "สินค้าและบริการ", href: "#Services" },
       { label: "เกี่ยวกับเรา", href: "#AboutExecutives" },
-      { label: "ผลงานของเรา", href: "#portfolio" },
-      { label: "ติดต่อเรา", href: "#contact" },
+      { label: "ข่าวสาร", href: "#News" },
+      { label: "ติดต่อเรา", href: "#Contact" },
     ].map((link, i) => (
       <li key={i} className="w-full">
         <a
