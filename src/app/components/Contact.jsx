@@ -113,14 +113,14 @@ export default function ContactPage() {
 
            {/* Iframe Container */}
            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-slate-100">
-  <iframe
+   <iframe
     title="Tangjai Office Location"
     className="absolute inset-0 w-full h-full border-0"
-    loading="lazy"
+    src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d572.332631477232!2d104.81418334150933!3d15.203331063104457!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1765250575587!5m2!1sth!2sth"
     allowFullScreen
+    loading="lazy"
     referrerPolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3850.1760803857374!2d104.81169757458376!3d15.203527362032334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31168934ea2a73af%3A0xbc9f5816cefce4be!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4l-C4teC5gOC4iOC4i-C4tSDguITguK3guKPguYzguJvguK3guYDguKPguIrguLHguYjguJkg4LiI4LmN4Liy4LiB4Lix4LiU!5e0!3m2!1sth!2sth!4v1765185041201!5m2!1sth!2sth"
-  ></iframe>
+  />
 </div>
 
         </div>
