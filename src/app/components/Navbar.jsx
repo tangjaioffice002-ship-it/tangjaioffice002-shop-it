@@ -33,19 +33,28 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ป้องกันการ Scroll หน้าเว็บหลักเมื่อเปิดเมนูมือถือ
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [open]);
+
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b border-transparent ${
           scrolled || open
-            ? "bg-white/80 backdrop-blur-md shadow-sm border-slate-200 py-2"
+            ? "bg-white/90 backdrop-blur-md shadow-sm border-slate-200 py-2"
             : "bg-transparent py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16">
           
           {/* --- LOGO --- */}
-          <a href="#home" className="flex items-center gap-3 group">
+          <a href="#home" className="flex items-center gap-3 group z-50 relative">
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-slate-100 group-hover:shadow-md transition-all">
                <img
                 src="/img/Logo.png"
@@ -54,7 +63,8 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`font-bold text-base sm:text-lg leading-tight transition-colors ${scrolled ? 'text-slate-800' : 'text-slate-800 md:text-white md:mix-blend-difference'}`}>
+              {/* ปรับสี Text ให้มองเห็นชัดใน Mobile Drawer ด้วย logic เช็ค scrolled หรือ open */}
+              <span className={`font-bold text-base sm:text-lg leading-tight transition-colors ${scrolled || open ? 'text-slate-800' : 'text-slate-800 md:text-white md:mix-blend-difference'}`}>
                 TANGJAI
               </span>
               <span className="text-[10px] sm:text-xs text-emerald-600 font-medium tracking-wide">
@@ -71,8 +81,6 @@ export default function Navbar() {
                 href={item.href}
                 className="px-4 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-white transition-all duration-300 flex items-center gap-2"
               >
-                {/* แสดงไอคอนเฉพาะตอน Hover (Optional) หรือซ่อนก็ได้ */}
-                {/* <item.icon size={16} className="opacity-50" /> */}
                 {item.label}
               </a>
             ))}
@@ -81,7 +89,7 @@ export default function Navbar() {
           {/* --- CTA BUTTON & MOBILE TOGGLE --- */}
           <div className="flex items-center gap-3">
             
-            {/* Contact Button (Desktop) */}
+            {/* Contact Button (Desktop Only) */}
             <a
               href="#Contact"
               className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full text-sm font-semibold shadow-lg shadow-emerald-200 transition-all transform hover:-translate-y-0.5"
@@ -90,10 +98,11 @@ export default function Navbar() {
               <span>ติดต่อเรา</span>
             </a>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+              className="lg:hidden p-2 rounded-full bg-slate-100 text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors z-50 relative"
+              aria-label="Toggle Menu"
             >
               {open ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -101,63 +110,70 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* --- MOBILE MENU OVERLAY --- */}
+      {/* =========================================
+          MOBILE MENU (DRAWER) - ตกแต่งใหม่ให้สวยงาม
+      ========================================= */}
+      
+      {/* Overlay Background */}
       <div
-        className={`fixed inset-0 z-40 bg-slate-900/20 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-500 lg:hidden ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setOpen(false)}
       ></div>
 
-      {/* --- MOBILE MENU DRAWER --- */}
+      {/* Drawer Container */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-[80%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-[320px] bg-white shadow-2xl transition-transform duration-500 cubic-bezier(0.32, 0.72, 0, 1) lg:hidden flex flex-col ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full">
-          {/* Drawer Header */}
-          <div className="p-6 border-b flex items-center justify-between bg-slate-50">
-            <span className="font-bold text-lg text-slate-800">เมนูนำทาง</span>
-            <button
+        
+        {/* 1. Drawer Header */}
+        <div className="pt-24 pb-6 px-6 border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
+            <h2 className="text-xl font-bold text-slate-800 mb-1">เมนูหลัก</h2>
+            <p className="text-sm text-slate-500 font-light">เลือกรายการที่ต้องการ</p>
+        </div>
+
+        {/* 2. Drawer Links List */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scroll">
+          {navItems.map((item, i) => (
+            <a
+              key={i}
+              href={item.href}
               onClick={() => setOpen(false)}
-              className="p-2 bg-white rounded-full shadow-sm text-slate-500 hover:text-red-500 transition-colors"
+              className="group flex items-center justify-between p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-100 hover:bg-emerald-50/50 transition-all duration-200 active:scale-[0.98]"
             >
-              <X size={20} />
-            </button>
-          </div>
-
-          {/* Drawer Links */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-2">
-            {navItems.map((item, i) => (
-              <a
-                key={i}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-between p-3 rounded-xl hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 transition-all group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 group-hover:bg-emerald-100 group-hover:text-emerald-600 transition-colors">
-                    <item.icon size={20} />
-                  </div>
-                  <span className="font-medium">{item.label}</span>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-500 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+                  <item.icon size={20} />
                 </div>
-                <ChevronRight size={16} className="text-slate-300 group-hover:text-emerald-500" />
-              </a>
-            ))}
-          </div>
+                <span className="font-semibold text-slate-600 group-hover:text-emerald-700 text-base">
+                    {item.label}
+                </span>
+              </div>
+              <ChevronRight size={18} className="text-slate-300 group-hover:text-emerald-500 transition-transform group-hover:translate-x-1" />
+            </a>
+          ))}
+        </div>
 
-          {/* Drawer Footer (Contact Button) */}
-          <div className="p-6 border-t bg-slate-50">
+        {/* 3. Drawer Footer (Info & CTA) */}
+        <div className="p-6 bg-slate-50 border-t border-slate-100">
+            {/* Contact Info Text */}
+            <div className="mb-4 text-center">
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">ต้องการความช่วยเหลือ?</p>
+                <p className="text-sm text-slate-600">ทีมงานพร้อมให้บริการตลอดเวลา</p>
+            </div>
+
+            {/* CTA Button */}
             <a
               href="#Contact"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-3 bg-emerald-600 text-white rounded-xl font-semibold shadow-md active:scale-95 transition-transform"
+              className="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl font-bold text-lg shadow-lg shadow-emerald-200 active:scale-[0.97] transition-all hover:shadow-xl"
             >
-              <PhoneCall size={20} />
+              <PhoneCall size={20} className="animate-pulse" />
               ติดต่อเราทันที
             </a>
-          </div>
         </div>
       </div>
     </>
