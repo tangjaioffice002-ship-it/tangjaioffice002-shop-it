@@ -1,13 +1,14 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function Hero() {
   return (
     <section
       id="home"
-      // เปลี่ยน h-screen เป็น min-h-[100dvh] เพื่อแก้ปัญหา Address bar ในมือถือบัง และรองรับเนื้อหาที่อาจจะยาว
       className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden"
     >
-      {/* 1. Background Video */}
+      {/* Background Video */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
         <video
           src="/hero-video.mp4"
@@ -17,55 +18,84 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover"
         />
-        {/* Overlay: เพิ่มความเข้มเล็กน้อยเพื่อให้ Text อ่านง่ายขึ้นบนจอมือถือที่สว่างน้อย */}
         <div className="absolute inset-0 bg-black/60 md:bg-black/50"></div>
       </div>
 
-      {/* 2. Content */}
-      {/* เพิ่ม padding บน-ล่าง (py-20) เผื่อกรณีจอมือถือแนวนอนเนื้อหาจะได้ไม่ชิดขอบ */}
+      {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full 
-        bg-white/10 backdrop-blur-sm border border-white/20 
-        text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide mb-6 sm:mb-8 animate-fadeIn">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full 
+            bg-white/10 backdrop-blur-sm border border-white/20 
+            text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide mb-6 sm:mb-8"
+        >
           <span className="relative flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
           </span>
           ครบจบทุกครุภัณฑ์การศึกษา
-        </div>
+        </motion.div>
 
         {/* Heading */}
-        {/* ปรับขนาด Font ให้ละเอียดขึ้น: text-3xl (มือถือ), text-5xl (แท็บเล็ต), text-6xl (คอม) */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight md:leading-[1.2] 
-        text-white mb-4 sm:mb-6 drop-shadow-xl break-words">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight md:leading-[1.2] 
+            text-white mb-4 sm:mb-6 drop-shadow-xl break-words"
+        >
           TANGJAI —{" "}
           <span className="block sm:inline text-emerald-400">
             ครุภัณฑ์การศึกษาคุณภาพ
           </span>
-        </h1>
+        </motion.h1>
 
         {/* Description */}
-        <p className="text-sm sm:text-base md:text-lg text-gray-200 
-        max-w-xl md:max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light px-2">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          className="text-sm sm:text-base md:text-lg text-gray-200 
+            max-w-xl md:max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed font-light px-2"
+        >
           TANGJAI ก่อตั้งโดยทีมงานผู้เชี่ยวชาญด้านการศึกษาและงานติดตั้ง
           เรามุ่งส่งมอบอุปกรณ์ที่ได้มาตรฐาน ใช้งานได้จริง
           พร้อมบริการหลังการขายที่เชื่อถือได้
-        </p>
+        </motion.p>
 
         {/* Stats Boxes */}
-        {/* Grid 1 แถวในมือถือ, 3 แถวในจอใหญ่ */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-sm sm:max-w-3xl mx-auto">
-          {[
-            { label: "มาตรฐาน", value: "ISO 9001",value2: "ISO 14001" },
-            { label: "ลูกค้าหลัก", value: "โรงเรียนรัฐบาล",value2: "" },
-            { label: "บริการ", value: "ติดตั้งครบวงจร",value2: "บริการจัดส่งถึงที่" },
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-sm sm:max-w-3xl mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.2,
+              }
+            }
+          }}
+        >
+          {[ 
+            { label: "มาตรฐาน", value: "ISO 9001", value2: "ISO 14001" },
+            { label: "ลูกค้าหลัก", value: "โรงเรียนรัฐบาล", value2: "" },
+            { label: "บริการ", value: "ติดตั้งครบวงจร", value2: "บริการจัดส่งถึงที่" },
           ].map((stat, index) => (
-            <div 
+            <motion.div
               key={index}
-              className="bg-white/10 backdrop-blur-md border border-white/10 p-3 sm:p-4 rounded-xl shadow-lg 
-              text-center transform hover:scale-105 transition duration-300"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white/10 backdrop-blur-md border border-white/10 
+                p-3 sm:p-4 rounded-xl shadow-lg text-center"
             >
               <p className="text-[10px] sm:text-xs text-emerald-200/80 uppercase tracking-wider font-semibold mb-1">
                 {stat.label}
@@ -76,9 +106,9 @@ export default function Hero() {
               <p className="font-bold text-white text-base sm:text-lg">
                 {stat.value2}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

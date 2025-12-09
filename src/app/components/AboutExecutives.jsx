@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Users, Eye, Award, History } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
 import HistoryPage from "../components/History";
 import ExecutivesPage from "../components/Executives";
 import StandardsPage from "../components/Standards";
@@ -27,61 +29,55 @@ export default function AboutExecutives() {
   return (
     <section
       id="AboutExecutives"
-      // ✅ แก้ไข: เปลี่ยนจาก Gradient เขียว เป็นสีพื้น Slate-50 เหมือนหน้า News
       className="relative w-full min-h-screen overflow-hidden font-sans bg-slate-50"
     >
-      <div className="pt-32 pb-16 md:pt-40 md:pb-24">
+      {/* Floating Lights */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-150px] right-[-100px] w-[450px] h-[450px] bg-emerald-200/40 rounded-full blur-[110px] animate-floatSlow"></div>
+        <div className="absolute bottom-[-150px] left-[-100px] w-[450px] h-[450px] bg-teal-200/40 rounded-full blur-[110px] animate-floatSlowDelay"></div>
+      </div>
 
-        {/* BG decoration */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* ✅ แก้ไข: เปลี่ยนสีจุดจากเขียว (#d1fae5) เป็นเทา (#cbd5e1) เพื่อให้เข้ากับ bg-slate-50 */}
-          <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:32px_32px] opacity-60 [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"></div>
+      <div className="pt-32 pb-16 md:pt-40 md:pb-24 relative z-10">
+
+        {/* Dot Background */}
+        <div className="absolute inset-0 pointer-events-none opacity-60">
+          <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:32px_32px] [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"></div>
         </div>
-
-        {/* BG soft glows (ยังคงแสงสีเขียวจางๆ ไว้เพื่อคุมโทน Brand แต่ปรับให้เข้ากับพื้นเทา) */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-[120px] mix-blend-multiply"></div>
-        <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-teal-100/40 rounded-full blur-[120px] mix-blend-multiply"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
-          <div className="text-center mb-10 md:mb-16">
-
-            {/* Badge */}
+          <div className="text-center mb-10 md:mb-16 animate-fadeIn">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-emerald-600 text-xs md:text-sm font-bold mb-5 shadow-sm">
               <History className="w-4 h-4" />
               <span>เกี่ยวกับ TANGJAI</span>
             </div>
 
-            {/* Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 leading-tight">
-              โครงสร้างองค์กร
-              <span className="text-emerald-600">
-                {" "}และความเป็นมา
-              </span>
+              โครงสร้างองค์กร <span className="text-emerald-600">และความเป็นมา</span>
             </h2>
           </div>
 
           {/* Tabs */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-12 animate-fadeInUp">
             <div className="bg-white p-2 rounded-full border border-slate-200 shadow-lg shadow-slate-200/50 flex flex-wrap justify-center gap-2 w-full max-w-md md:max-w-4xl">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`
-                    relative flex items-center justify-center gap-2 px-5 py-3
-                    rounded-full text-sm md:text-base font-medium transition-all duration-300
+                    relative flex items-center justify-center gap-2 px-5 py-3 rounded-full
+                    text-sm md:text-base font-medium transition-all duration-300
                     flex-1 sm:flex-none whitespace-nowrap
                     ${
                       activeTab === tab.id
-                        ? "text-white scale-[1.02] shadow-md shadow-emerald-200"
-                        : "text-slate-500 hover:text-emerald-600 hover:bg-slate-50"
+                        ? "text-white scale-[1.07] shadow-md shadow-emerald-200"
+                        : "text-slate-500 hover:text-emerald-600 hover:bg-slate-100/60"
                     }
                   `}
                 >
                   {activeTab === tab.id && (
-                    <div className="absolute inset-0 bg-emerald-500 rounded-full -z-10 animate-fadeScale"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full -z-10 animate-pill"></div>
                   )}
 
                   <tab.icon
@@ -96,46 +92,61 @@ export default function AboutExecutives() {
           </div>
 
           {/* Content Box */}
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden relative min-h-[400px] transition-all duration-500">
+          <div className="max-w-5xl mx-auto animate-fadeInUp">
+            <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden relative min-h-[400px] transition-all duration-500 hover:shadow-emerald-200/40 hover:scale-[1.01]">
 
-              {/* Animated Border */}
+              {/* Top Border Line */}
               <div className="h-1.5 w-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-[length:200%_100%] animate-gradientMove"></div>
 
+              {/* Animated Slide Content */}
               <div className="p-5 sm:p-8 md:p-12">
-                <div key={activeTab} className="animate-fadeInUp">
-                  {tabContent[activeTab]}
-                </div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, x: 80 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -80 }}
+                    transition={{
+                      duration: 0.45,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    {tabContent[activeTab]}
+                  </motion.div>
+                </AnimatePresence>
               </div>
+
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Animations */}
+      {/* Keyframes */}
       <style jsx>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(15px); }
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(-20px); }
+          50% { transform: translateY(20px); }
+        }
+        @keyframes floatSlowDelay {
+          0%, 100% { transform: translateY(25px); }
+          50% { transform: translateY(-25px); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes fadeScale {
-          from { opacity: 0; transform: scale(0.95); }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pill {
+          from { opacity: 0; transform: scale(0.9); }
           to { opacity: 1; transform: scale(1); }
         }
-        @keyframes gradientMove {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 100% 50%; }
-        }
-        .animate-fadeInUp {
-          animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .animate-fadeScale {
-          animation: fadeScale 0.3s ease-out forwards;
-        }
-        .animate-gradientMove {
-          animation: gradientMove 4s linear infinite;
-        }
+        .animate-fadeIn { animation: fadeIn 0.8s ease forwards; }
+        .animate-fadeInUp { animation: fadeInUp 1s ease forwards; }
+        .animate-pill { animation: pill 0.25s ease-out forwards; }
       `}</style>
     </section>
   );

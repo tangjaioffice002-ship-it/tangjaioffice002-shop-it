@@ -163,7 +163,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs font-bold text-slate-700 group-hover:text-[#1877F2]">
-                    Facebook Page
+                    Facebook 
                   </span>
                   <span className="text-[10px] text-slate-400">Tangjai Corporation</span>
                 </div>
