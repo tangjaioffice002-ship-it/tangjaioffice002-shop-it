@@ -8,7 +8,7 @@ const executives = [
   { name: "นางประนอม สุตัญตั้งใจ", title: "รองประธานบริษัท", photo: "/img/02.jpg" },
 ];
 
-export default function ExecutivesSection() {
+export default function Executives() {
   const [previewImg, setPreviewImg] = useState(null);
 
   return (

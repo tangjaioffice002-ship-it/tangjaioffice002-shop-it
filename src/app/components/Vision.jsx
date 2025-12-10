@@ -8,7 +8,7 @@ const prompt = Prompt({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-export default function VisionPage() {
+export default function Vision() {
   const items = [
     {
       title: "วิสัยทัศน์ (Vision)",
