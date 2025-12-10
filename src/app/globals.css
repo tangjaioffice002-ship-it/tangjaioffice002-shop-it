@@ -93,3 +93,34 @@ body {
 .animate-slideRight {
   animation: slideInRight 0.6s ease-out;
 }
+
+/* ========== Elastic (แทนที่จาก JSX) ========== */
+@keyframes elastic {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-elastic {
+  animation: elastic 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ========== Shine Animation ========== */
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.animate-shine {
+  animation: shine 0.6s linear;
+}
+
+/* ========== Fade In Up ========== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

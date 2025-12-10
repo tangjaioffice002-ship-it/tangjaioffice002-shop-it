@@ -60,7 +60,7 @@ export default function AboutExecutives() {
 
           {/* Tabs */}
           <div className="flex justify-center mb-12 animate-fadeInUp">
-            <div className="bg-white p-2 rounded-full border border-slate-200 shadow-lg shadow-slate-200/50 flex flex-wrap justify-center gap-2 w-full max-w-md md:max-w-4xl">
+          <div className=" bg-white px-6 py-2rounded-full border border-slate-20 shadow-lg shadow-slate-200/50  flex flex-wrap justify-center gap-2 w-fu max-w-">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -122,32 +122,7 @@ export default function AboutExecutives() {
         </div>
       </div>
 
-      {/* Keyframes */}
-      <style jsx>{`
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(-20px); }
-          50% { transform: translateY(20px); }
-        }
-        @keyframes floatSlowDelay {
-          0%, 100% { transform: translateY(25px); }
-          50% { transform: translateY(-25px); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes pill {
-          from { opacity: 0; transform: scale(0.9); }
-          to { opacity: 1; transform: scale(1); }
-        }
-        .animate-fadeIn { animation: fadeIn 0.8s ease forwards; }
-        .animate-fadeInUp { animation: fadeInUp 1s ease forwards; }
-        .animate-pill { animation: pill 0.25s ease-out forwards; }
-      `}</style>
+    
     </section>
   );
 }
