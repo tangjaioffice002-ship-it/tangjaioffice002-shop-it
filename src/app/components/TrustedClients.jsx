@@ -51,7 +51,7 @@ export default function TrustedClients() {
       
       {/* ✅ แก้ไข 2: ปรับลวดลายพื้นหลัง (Pattern) เป็นสีเทา (#cbd5e1) */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-60 [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"></div>
+        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-60 mask-[linear-gradient(to_bottom,black_80%,transparent)]"></div>
         {/* Glow สีเขียวจางๆ ยังคงไว้เพื่อให้เข้ากับ Theme หลัก (ถ้าไม่ชอบลบ 2 บรรทัดล่างนี้ออกได้ครับ) */}
         <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-emerald-100/40 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"></div>
       </div>

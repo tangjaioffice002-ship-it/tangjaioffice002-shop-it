@@ -33,7 +33,7 @@ export default function VisionPage() {
     >
       {/* --- Background Decoration (Consistent Theme) --- */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-60 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"></div>
+        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-60 mask-[linear-gradient(to_bottom,black_60%,transparent)]"></div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
       </div>
