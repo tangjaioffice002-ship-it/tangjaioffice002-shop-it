@@ -5,9 +5,9 @@ import { Users, Eye, Award, History } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import HistoryPage from "../components/History";
-import ExecutivesPage from "../components/Executives";
+import ExecutivesPage from "../components/ExecutivesSection";
 import StandardsPage from "../components/Standards";
-import VisionPage from "../components/Vision";
+import VisionPage from "../components/VisionPage";
 
 export default function AboutExecutives() {
   const [activeTab, setActiveTab] = useState("history");
