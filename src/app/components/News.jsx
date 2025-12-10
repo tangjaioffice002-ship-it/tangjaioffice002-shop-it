@@ -91,7 +91,7 @@ export default function News() {
       
       {/* --- BACKGROUND DECORATION --- */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-60"></div>
+        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-60"></div>
         <div className="absolute top-1/4 left-0 -translate-x-1/2 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
         <div className="absolute bottom-0 right-0 translate-x-1/3 w-[500px] h-[500px] bg-teal-100 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
       </div>
@@ -111,7 +111,7 @@ export default function News() {
 
         {/* --- FEATURED NEWS HERO --- */}
         <div className="mb-20">
-          <div className="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col lg:flex-row border border-slate-100 group">
+          <div className="bg-white rounded-4xl shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col lg:flex-row border border-slate-100 group">
             
             {/* Left: Slider */}
             <div className="w-full lg:w-3/5 h-[300px] lg:h-[450px] relative overflow-hidden bg-slate-200">
@@ -125,9 +125,9 @@ export default function News() {
                   <img
                     src={src}
                     alt="Featured News"
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2000ms]"
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-2000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
                 </div>
               ))}
 
@@ -215,7 +215,7 @@ export default function News() {
             {news.map((item) => (
               <article
                 key={item.id}
-                className="flex-shrink-0 w-72 sm:w-80 snap-start bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 overflow-hidden group h-full flex flex-col"
+                className="shrink-0 w-72 sm:w-80 snap-start bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 overflow-hidden group h-full flex flex-col"
               >
                 <div className="h-48 w-full overflow-hidden relative">
                   <div className="absolute top-3 left-3 z-10">
@@ -231,7 +231,7 @@ export default function News() {
                   />
                 </div>
 
-                <div className="p-5 flex flex-col flex-grow">
+                <div className="p-5 flex flex-col grow">
                   <div className="flex items-center gap-2 text-xs text-slate-400 mb-3">
                     <Calendar size={12} />
                     <span>{item.date}</span>

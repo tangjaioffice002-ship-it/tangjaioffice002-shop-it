@@ -9,7 +9,7 @@ export default function ContactPage() {
       {/* --- BACKGROUND DECORATION --- */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Dot Pattern */}
-        <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-70"></div>
+        <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[20px_20px] opacity-70"></div>
         {/* Gradient Blobs */}
         <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
         <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>

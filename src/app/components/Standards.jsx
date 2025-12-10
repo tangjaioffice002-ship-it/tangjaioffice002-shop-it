@@ -48,7 +48,7 @@ export default function Standards() {
             <span>World-Class Certified</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4 tracking-tight leading-tight">
-            การรับรอง<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">มาตรฐานสากล</span>
+            การรับรอง<span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">มาตรฐานสากล</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed">
             เครื่องหมายยืนยันคุณภาพและความมุ่งมั่นในการพัฒนาอย่างต่อเนื่อง เพื่อส่งมอบสิ่งที่ดีที่สุดให้กับลูกค้าและสังคม
@@ -60,12 +60,12 @@ export default function Standards() {
           {data.map((item, i) => (
             <div
               key={i}
-              className="group bg-white rounded-[1.5rem] p-5 shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100 cursor-pointer flex flex-col md:flex-row gap-6 items-center md:items-stretch hover:-translate-y-1 animate-fadeInUp"
+              className="group bg-white rounded-3xl p-5 shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100 cursor-pointer flex flex-col md:flex-row gap-6 items-center md:items-stretch hover:-translate-y-1 animate-fadeInUp"
               style={{ animationDelay: `${i * 150}ms` }} // Staggered animation
               onClick={() => setSelectedImage(item.image)}
             >
               {/* Image Frame with Zoom Effect */}
-              <div className="relative w-full md:w-2/5 aspect-[3/4] md:aspect-auto overflow-hidden rounded-xl bg-slate-100 shadow-sm group-hover:shadow-md transition-all">
+              <div className="relative w-full md:w-2/5 aspect-3/4 md:aspect-auto overflow-hidden rounded-xl bg-slate-100 shadow-sm group-hover:shadow-md transition-all">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -111,7 +111,7 @@ export default function Standards() {
       {/* --- Modal / Lightbox --- */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-slate-900/80 backdrop-blur-md animate-fadeIn p-4"
+          className="fixed inset-0 z-999 flex items-center justify-center bg-slate-900/80 backdrop-blur-md animate-fadeIn p-4"
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-w-3xl w-auto flex items-center justify-center">

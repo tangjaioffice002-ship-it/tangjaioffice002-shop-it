@@ -33,7 +33,7 @@ export default function VisionPage() {
     >
       {/* --- Background Decoration (Consistent Theme) --- */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-60 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"></div>
+        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-60 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"></div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
       </div>
@@ -60,11 +60,11 @@ export default function VisionPage() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="group bg-white rounded-[2rem] p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
+              className="group bg-white rounded-4xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Decorative Gradient on Hover */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-teal-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-emerald-400 to-teal-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
               {/* Icon */}
               <div className="mb-6 w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300 shadow-inner">

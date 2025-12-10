@@ -4,7 +4,7 @@ import React from "react";
 import { Sparkles, Package } from "lucide-react";
 
 const services = [
-  {
+ {
     id: 1,
     name: "เก้าอี้ครู",
     img: "https://image.makewebcdn.com/makeweb/r_300x300/kpR4VNIEl/DefaultData/84_%E0%B9%80%E0%B8%81%E0%B9%89%E0%B8%B2%E0%B8%AD%E0%B8%B5%E0%B9%89%E0%B8%84%E0%B8%A3%E0%B8%B9.jpg?v=202405291424",
@@ -50,85 +50,107 @@ const services = [
 
 export default function Services() {
   return (
-    <section 
-      id="Services" 
-      // ✅ แก้ไข: เปลี่ยนจาก Gradient ขาว-เขียว เป็น bg-slate-50
-      className="relative py-16 md:py-24 lg:py-28 font-sans overflow-hidden bg-slate-50"
+    <section
+      id="Services"
+      className="relative py-16 md:py-24 lg:py-28 font-sans overflow-hidden bg-slate-50 animate-sectionSlideIn"
     >
-      
-      {/* --- BACKGROUND DECORATION --- */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* ✅ แก้ไข: เปลี่ยนจุดเป็นสีเทา (#cbd5e1) และใช้ Mask Image ให้จางลงด้านล่าง */}
-        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] md:[background-size:32px_32px] opacity-60 [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"></div>
-        
-        {/* Glows: ปรับให้เข้ากับพื้นเทา แต่ยังคงสีเขียวจางๆ ไว้ */}
-        <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-emerald-100/40 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 mix-blend-multiply"></div>
-        <div className="absolute bottom-10 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-teal-100/40 rounded-full blur-[90px] translate-y-1/4 -translate-x-1/4 mix-blend-multiply"></div>
+      {/* --- Background --- */}
+      <div className="absolute inset-0 pointer-events-none animate-fadeInSlow">
+        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[24px_24px] opacity-50"></div>
       </div>
 
+      {/* Wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* --- HEADER --- */}
-        <div className="text-center mb-12 md:mb-16 lg:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-[#0BA360] text-xs sm:text-sm font-bold mb-6 shadow-sm">
+
+        {/* HEADER */}
+        <div className="text-center mb-16 animate-slideDown">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-emerald-600 text-sm font-bold mb-4 shadow-sm">
             <Package size={16} />
             <span>OUR PRODUCTS</span>
           </div>
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-800 tracking-tight leading-tight">
+
+          <h3 className="text-4xl md:text-6xl font-extrabold text-slate-800 tracking-tight leading-tight">
             คัดสรร
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0BA360] to-[#36C98E]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-500 to-teal-400">
               {" "}สิ่งที่ดีที่สุด
             </span>
-            <br className="hidden md:block"/> เพื่อการศึกษาไทย
+            <br /> เพื่อการศึกษาไทย
           </h3>
-          <p className="mt-6 text-slate-500 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-            เราให้บริการจัดหาครุภัณฑ์และติดตั้งระบบครบวงจร ด้วยมาตรฐานที่ได้รับการยอมรับจากหน่วยงานรัฐและเอกชน
+
+          <p className="mt-6 text-slate-500 text-lg md:text-xl max-w-2xl mx-auto">
+            เราให้บริการจัดหาครุภัณฑ์และติดตั้งระบบครบวงจร ด้วยมาตรฐานระดับมืออาชีพ
           </p>
         </div>
 
         {/* --- PRODUCT GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-          {services.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((item, index) => (
             <div
               key={item.id}
-              // ✅ ปรับ Shadow และ Border ให้เข้ากับพื้นหลัง Slate
-              className="group relative bg-white rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-500 flex flex-col h-full overflow-hidden"
+              className="group relative bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full animate-cardStagger"
+              style={{ animationDelay: `${index * 180}ms` }}
             >
-              
-              {/* Image Section */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-white transition-colors duration-500">
-                <div className="absolute top-4 left-4 md:top-5 md:left-5 z-20">
-                  <span className="px-3 py-1.5 bg-white/95 backdrop-blur-md border border-slate-100 text-[#0BA360] text-xs md:text-sm font-bold rounded-lg shadow-sm uppercase tracking-wide flex items-center gap-1.5">
-                    <Sparkles size={12} className="text-[#36C98E]" />
-                    {item.category}
-                  </span>
-                </div>
-
+              {/* Image */}
+              <div className="relative aspect-4/3 overflow-hidden">
                 <img
                   src={item.img}
                   alt={item.name}
-                  className="absolute inset-0 w-full h-full object-contain p-6 md:p-8 transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-500"
                 />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0BA360]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <span className="absolute top-4 left-4 px-3 py-1.5 bg-white/90 backdrop-blur border border-slate-100 text-emerald-600 text-xs font-bold rounded-lg">
+                  {item.category}
+                </span>
               </div>
 
-              {/* Content Section */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow relative bg-white border-t border-slate-50">
-                <h4 className="text-xl md:text-2xl font-bold text-slate-800 mb-3 md:mb-4 line-clamp-2 group-hover:text-[#0BA360] transition-colors duration-300 leading-snug">
+              {/* Content */}
+              <div className="p-6 border-t border-slate-50">
+                <h4 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition">
                   {item.name}
                 </h4>
-                
-                <p className="text-slate-500 text-base md:text-lg leading-relaxed mb-6 font-light">
+                <p className="text-slate-500 leading-relaxed">
                   {item.description}
                 </p>
               </div>
-
             </div>
           ))}
         </div>
-
       </div>
+
+      {/* --- Animations --- */}
+      <style jsx>{`
+        @keyframes sectionSlideIn {
+          0% { opacity: 0; transform: translateX(60px); }
+          100% { opacity: 1; transform: translateX(0); }
+        }
+        .animate-sectionSlideIn {
+          animation: sectionSlideIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes slideDown {
+          0% { opacity: 0; transform: translateY(-50px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slideDown {
+          animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes cardStagger {
+          0% { opacity: 0; transform: translateY(40px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-cardStagger {
+          animation: cardStagger 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInSlow {
+          0% { opacity: 0; }
+          100% { opacity: 0.6; }
+        }
+        .animate-fadeInSlow {
+          animation: fadeInSlow 1.8s ease-out;
+        }
+      `}</style>
     </section>
   );
 }

@@ -8,7 +8,7 @@ export default function Footer() {
       
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <div className="absolute h-full w-full bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="absolute h-full w-full bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[16px_16px]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">

@@ -127,7 +127,7 @@ export default function Navbar() {
           }`}
       >
         {/* Header */}
-        <div className="pt-24 pb-6 px-6 border-b border-slate-100 bg-gradient-to-b from-emerald-50 to-white">
+        <div className="pt-24 pb-6 px-6 border-b border-slate-100 bg-linear-to-b from-emerald-50 to-white">
           <h2 className="text-xl font-bold text-slate-800 mb-1">เมนูหลัก</h2>
           <p className="text-sm text-slate-500 font-light">เลือกรายการที่ต้องการ</p>
         </div>
@@ -170,7 +170,7 @@ export default function Navbar() {
           <a
             href="#Contact"
             onClick={() => setOpen(false)}
-            className="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl font-bold text-lg shadow-lg shadow-emerald-200 active:scale-[0.97] transition-all hover:shadow-xl"
+            className="flex items-center justify-center gap-2 w-full py-4 bg-linear-to-r from-emerald-600 to-teal-600 text-white rounded-2xl font-bold text-lg shadow-lg shadow-emerald-200 active:scale-[0.97] transition-all hover:shadow-xl"
           >
             <PhoneCall size={20} className="animate-pulse" />
             ติดต่อเราทันที

@@ -28,25 +28,25 @@ export default function ExecutivesSection() {
 
         <h3 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 tracking-tight">
           ผู้นำที่มี
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-500 to-emerald-500"> ประสบการณ์</span>
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-lime-500 to-emerald-500"> ประสบการณ์</span>
         </h3>
 
-        <div className="w-20 h-1.5 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full mx-auto opacity-80"></div>
+        <div className="w-20 h-1.5 bg-linear-to-r from-lime-400 to-emerald-400 rounded-full mx-auto opacity-80"></div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
         {executives.map((e, i) => (
           <div
             key={i}
-            className="group relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(132,204,22,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out"
+            className="group relative bg-white p-8 rounded-4xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(132,204,22,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out"
           >
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-              <div className="relative flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-tr from-lime-300 to-teal-300 rounded-full blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-lime-400 to-emerald-400 rounded-[1.5rem] rotate-3 group-hover:rotate-12 transition-transform duration-500 ease-out opacity-80"></div>
+              <div className="relative shrink-0">
+                <div className="absolute inset-0 bg-linear-to-tr from-lime-300 to-teal-300 rounded-full blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-lime-400 to-emerald-400 rounded-3xl rotate-3 group-hover:rotate-12 transition-transform duration-500 ease-out opacity-80"></div>
 
                 <div
-                  className="relative w-32 h-32 md:w-32 md:h-32 rounded-[1.5rem] overflow-hidden ring-4 ring-white shadow-lg group-hover:scale-105 transition-transform duration-500 cursor-pointer"
+                  className="relative w-32 h-32 md:w-32 md:h-32 rounded-3xl overflow-hidden ring-4 ring-white shadow-lg group-hover:scale-105 transition-transform duration-500 cursor-pointer"
                   onClick={() => setPreviewImg(e.photo)}
                 >
                   <img
@@ -69,7 +69,7 @@ export default function ExecutivesSection() {
                   {e.title}
                 </p>
 
-                <div className="h-1 w-12 mx-auto md:mx-0 bg-gradient-to-r from-lime-400 to-teal-400 rounded-full group-hover:w-full max-w-[120px] transition-all duration-500 ease-out"></div>
+                <div className="h-1 w-12 mx-auto md:mx-0 bg-linear-to-r from-lime-400 to-teal-400 rounded-full group-hover:w-full max-w-[120px] transition-all duration-500 ease-out"></div>
               </div>
             </div>
           </div>
@@ -80,8 +80,8 @@ export default function ExecutivesSection() {
       {previewImg && (
         <div
           className="fixed inset-0 bg-black/70 backdrop-blur-md 
-          flex justify-center items-center      /* <<< เปลี่ยนเป็น items-center เพื่อให้กึ่งกลางแนวตั้ง */
-          z-[999] animate-fadeIn"
+          flex justify-center items-center      /* <<< เปลี่ยนเป็น เพื่อให้กึ่งกลางแนวตั้ง */
+          z-999 animate-fadeIn"
           onClick={() => setPreviewImg(null)}
         >
           <div

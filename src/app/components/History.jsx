@@ -42,19 +42,6 @@ export default function HistoryPage() {
           </p>
         </div>
 
-        {/* มาตรฐาน */}
-        <div className="bg-green-50 rounded-2xl shadow p-8 border border-green-200">
-          <div className="flex items-center gap-3 mb-3">
-            <Award className="w-7 h-7 text-green-600" />
-            <h2 className="text-2xl font-semibold text-green-700">มาตรฐานของเรา</h2>
-          </div>
-
-          <p className="text-gray-700 leading-relaxed">
-            เราคัดสรรสินค้าจากผู้ผลิตชั้นนำ ตรวจสอบคุณภาพทุกล็อตก่อนส่งมอบ
-            พร้อมทีมงานบริการหลังการขายที่ดูแลอย่างมืออาชีพเพื่อให้ลูกค้าได้รับประสบการณ์ที่ดีที่สุด
-          </p>
-        </div>
-
       </section>
 
     </main>

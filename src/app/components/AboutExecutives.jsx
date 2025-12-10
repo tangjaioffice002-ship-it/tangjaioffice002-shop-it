@@ -41,7 +41,7 @@ export default function AboutExecutives() {
 
         {/* Dot Background */}
         <div className="absolute inset-0 pointer-events-none opacity-60">
-          <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:32px_32px] [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"></div>
+          <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-size-[32px_32px] mask-[linear-gradient(to_bottom,black_80%,transparent)]"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +60,7 @@ export default function AboutExecutives() {
 
           {/* Tabs */}
           <div className="flex justify-center mb-12 animate-fadeInUp">
-          <div className=" bg-white px-6 py-2rounded-full border border-slate-20 shadow-lg shadow-slate-200/50  flex flex-wrap justify-center gap-2 w-fu max-w-">
+          <div className=" bg-white p-2  rounded-full border border-slate-200     // ← เส้นกรอบตัวนี้shadow-lg shadow-slate-200/50 flex flex-wrap justify-center gap-2 w-full max-w-2xl mx-auto">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -77,7 +77,7 @@ export default function AboutExecutives() {
                   `}
                 >
                   {activeTab === tab.id && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full -z-10 animate-pill"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-emerald-500 to-teal-500 rounded-full -z-10 animate-pill"></div>
                   )}
 
                   <tab.icon
@@ -96,7 +96,7 @@ export default function AboutExecutives() {
             <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden relative min-h-[400px] transition-all duration-500 hover:shadow-emerald-200/40 hover:scale-[1.01]">
 
               {/* Top Border Line */}
-              <div className="h-1.5 w-full bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-[length:200%_100%] animate-gradientMove"></div>
+              <div className="h-1.5 w-full bg-linear-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-size-[200%_100%] animate-gradientMove"></div>
 
               {/* Animated Slide Content */}
               <div className="p-5 sm:p-8 md:p-12">

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden"
+      className="relative w-full min-h-dvh flex items-center justify-center overflow-hidden"
     >
       {/* Background Video */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
@@ -46,7 +46,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight md:leading-[1.2] 
-            text-white mb-4 sm:mb-6 drop-shadow-xl break-words"
+            text-white mb-4 sm:mb-6 drop-shadow-xl wrap-break-word"
         >
           TANGJAI —{" "}
           <span className="block sm:inline text-emerald-400">
