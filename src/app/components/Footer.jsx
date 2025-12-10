@@ -170,7 +170,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://line.me/R/ti/p/yourlineid"
+                href="https://lin.ee/twVZIGO"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-green-100 hover:bg-green-50 transition-all duration-300 group"
