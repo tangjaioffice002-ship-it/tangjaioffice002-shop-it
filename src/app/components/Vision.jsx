@@ -48,6 +48,7 @@ export default function Vision() {
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold text-slate-800 leading-tight">
             มุ่งมั่นสร้างสรรค์
+            <br className="block md:hidden" />
             <span className="text-emerald-600"> สิ่งที่ดีที่สุด</span>
           </h1>
           <p className="text-slate-500 mt-4 max-w-2xl mx-auto font-light text-base md:text-lg">

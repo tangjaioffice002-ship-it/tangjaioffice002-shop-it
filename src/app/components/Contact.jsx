@@ -37,23 +37,22 @@ export default function ContactPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs sm:text-sm font-semibold mb-4 border border-emerald-200 shadow-sm">
-            <Phone size={14} />
-            <span>Contact Us</span>
-          </div>
+<div className="inline-flex items-center gap-2 px-2.5 py-0.5 
+  rounded-full bg-emerald-100 text-emerald-700 
+  text-xs sm:text-sm font-semibold mb-6 border border-emerald-200 
+  shadow-sm mx-auto">
+  <Phone size={14} />
+  <span>Contact Us</span>
+</div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 tracking-tight mb-4 relative inline-block">
-            ช่องทางการ
-            <span className="text-emerald-600 relative">
-              ติดต่อ
-              <motion.span
-                className="absolute left-0 bottom-0 w-full h-[6px] bg-emerald-300/50 rounded-full"
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                transition={{ duration: 0.8 }}
-              />
-            </span>
-          </h2>
+<h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 tracking-tight mb-4 relative">
+  ช่องทางการ
+  
+  <span className="text-emerald-600 relative md:ml-2">
+    ติดต่อ
+  </span>
+</h2>
+
 
           <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto font-light">
             พร้อมให้คำปรึกษาและบริการข้อมูลสินค้า สอบถามได้ทุกช่องทาง
@@ -128,49 +127,6 @@ export default function ContactPage() {
             </p>
           </motion.div>
         </div>
-
-        {/* --- MAP SECTION --- */}
-        <motion.div
-          className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100 p-2"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          {/* TOP HEADER */}
-          <div className="px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4 bg-white">
-            <div className="flex items-center gap-3">
-              <div className="bg-emerald-100 p-2 rounded-lg text-emerald-600">
-                <MapPin size={20} />
-              </div>
-              <h3 className="font-bold text-slate-800 text-lg">แผนที่การเดินทาง</h3>
-            </div>
-
-            <a
-              href="https://maps.google.com/?q=Tangjai+Corporation+Ubon"
-              target="_blank"
-              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-xl transition-colors shadow-lg shadow-emerald-200"
-            >
-              <Navigation size={16} />
-              นำทางด้วย Google Maps
-            </a>
-          </div>
-
-          {/* MAP */}
-          <motion.div
-            className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden"
-            animate={{ scale: [1, 1.01, 1] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <iframe
-              title="Tangjai Office Location"
-              className="absolute inset-0 w-full h-full border-0"
-              src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d572.332631477232!2d104.81418334150933!3d15.203331063104457!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1765250575587!5m2!1sth!2sth"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

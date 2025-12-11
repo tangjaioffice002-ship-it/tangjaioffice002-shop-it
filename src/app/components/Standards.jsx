@@ -48,7 +48,8 @@ export default function Standards() {
             <span>World-Class Certified</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4 tracking-tight leading-tight">
-            การรับรอง<span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">มาตรฐานสากล</span>
+            การรับรอง  <br className="block md:hidden" />
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500">มาตรฐานสากล</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg font-light leading-relaxed">
             เครื่องหมายยืนยันคุณภาพและความมุ่งมั่นในการพัฒนาอย่างต่อเนื่อง เพื่อส่งมอบสิ่งที่ดีที่สุดให้กับลูกค้าและสังคม

@@ -22,7 +22,10 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20">
+      <div className="
+        relative z-10 mx-auto px-4 sm:px-6 text-center py-20
+        max-w-5xl md:max-w-6xl lg:max-w-7xl
+      ">
 
         {/* Badge */}
         <motion.div
@@ -33,11 +36,14 @@ export default function Hero() {
             bg-white/10 backdrop-blur-sm border border-white/20 
             text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide mb-6 sm:mb-8"
         >
-          <span className="relative flex h-3 w-3">
+          <span className="relative flex h-3 w-3 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
           </span>
-          ครบจบทุกครุภัณฑ์การศึกษา
+
+          <span className="whitespace-nowrap">
+            ครบจบทุกครุภัณฑ์การศึกษา
+          </span>
         </motion.div>
 
         {/* Heading */}
@@ -45,11 +51,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight md:leading-[1.2] 
-            text-white mb-4 sm:mb-6 drop-shadow-xl wrap-break-word"
+          className="text-3xl sm:text-5xl md:text-6xl font-extrabold 
+            leading-tight md:leading-[1.2] text-white mb-4 sm:mb-6 
+            drop-shadow-xl whitespace-normal break-keep"
         >
-          TANGJAI —{" "}
-          <span className="block sm:inline text-emerald-400">
+          TANGJAI  
+          <br className="block md:hidden" />
+
+          <span className="text-emerald-400 inline md:inline md:ml-2">
             ครุภัณฑ์การศึกษาคุณภาพ
           </span>
         </motion.h1>
@@ -68,7 +77,7 @@ export default function Hero() {
         </motion.p>
 
         {/* Stats Boxes */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-sm sm:max-w-3xl mx-auto"
           initial="hidden"
           animate="visible"
@@ -81,9 +90,9 @@ export default function Hero() {
             }
           }}
         >
-          {[ 
+          {[
             { label: "มาตรฐาน", value: "ISO 9001", value2: "ISO 14001" },
-            { label: "ลูกค้าหลัก", value: "โรงเรียนรัฐบาล", value2: "" },
+            { label: "ลูกค้าหลัก", value: "โรงเรียนรัฐบาล", value2: "หน่วยงานราชการ" },
             { label: "บริการ", value: "ติดตั้งครบวงจร", value2: "บริการจัดส่งถึงที่" },
           ].map((stat, index) => (
             <motion.div

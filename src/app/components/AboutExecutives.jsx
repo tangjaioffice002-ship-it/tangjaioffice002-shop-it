@@ -5,10 +5,9 @@ import { Users, Eye, Award, History } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import HistoryPage from "../components/History";
-import Executives from "../components/Executives"; 
+import Executives from "../components/Executives";
 import StandardsPage from "../components/Standards";
 import Vision from "../components/Vision";
-
 
 export default function AboutExecutives() {
   const [activeTab, setActiveTab] = useState("history");
@@ -54,14 +53,16 @@ export default function AboutExecutives() {
               <span>เกี่ยวกับ TANGJAI</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 leading-tight">
-              โครงสร้างองค์กร <span className="text-emerald-600">และความเป็นมา</span>
+            <h2 className="text-center text-3xl md:text-4xl font-bold leading-snug">
+              โครงสร้างองค์กร
+              <br className="block md:hidden" />
+              <span className="text-emerald-600 md:ml-2">และความเป็นมา</span>
             </h2>
           </div>
 
           {/* Tabs */}
           <div className="flex justify-center mb-12 animate-fadeInUp">
-          <div className=" bg-white p-2  rounded-full border border-slate-200     // ← เส้นกรอบตัวนี้shadow-lg shadow-slate-200/50 flex flex-wrap justify-center gap-2 w-full max-w-2xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-3 w-full max-w-2xl mx-auto">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -69,16 +70,16 @@ export default function AboutExecutives() {
                   className={`
                     relative flex items-center justify-center gap-2 px-5 py-3 rounded-full
                     text-sm md:text-base font-medium transition-all duration-300
-                    flex-1 sm:flex-none whitespace-nowrap
+                    whitespace-nowrap border 
                     ${
                       activeTab === tab.id
-                        ? "text-white scale-[1.07] shadow-md shadow-emerald-200"
-                        : "text-slate-500 hover:text-emerald-600 hover:bg-slate-100/60"
+                        ? "text-white border-transparent scale-[1.07] shadow-md shadow-emerald-200"
+                        : "text-slate-600 bg-white border-slate-200 shadow-sm hover:bg-slate-100"
                     }
                   `}
                 >
                   {activeTab === tab.id && (
-                    <div className="absolute inset-0 bg-linear-to-r from-emerald-500 to-teal-500 rounded-full -z-10 animate-pill"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full -z-10"></div>
                   )}
 
                   <tab.icon
@@ -93,14 +94,15 @@ export default function AboutExecutives() {
           </div>
 
           {/* Content Box */}
-          <div className="max-w-5xl mx-auto animate-fadeInUp">
-            <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden relative min-h-[400px] transition-all duration-500 hover:shadow-emerald-200/40 hover:scale-[1.01]">
+          <div className="max-w-7xl mx-auto animate-fadeInUp">
 
-              {/* Top Border Line */}
-              <div className="h-1.5 w-full bg-linear-to-r from-emerald-400 via-teal-400 to-emerald-400 bg-size-[200%_100%] animate-gradientMove"></div>
+            <div
+             className="bg-white rounded-3xl shadow-xl p-6 md:p-5 max-w-5xl mx-auto">
 
-              {/* Animated Slide Content */}
-              <div className="p-5 sm:p-8 md:p-12">
+           
+            
+              {/* Content */}
+              <div className="px-2 py-5 sm:px-3 sm:py-8 md:px-4 md:py-12">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeTab}
@@ -123,7 +125,6 @@ export default function AboutExecutives() {
         </div>
       </div>
 
-    
     </section>
   );
 }
