@@ -174,11 +174,6 @@ export default function News() {
 
         {/* --- CONTROLS --- */}
         <div className="flex flex-col sm:flex-row justify-between items-end sm:items-center mb-6 px-2 gap-4">
-          <h4 className="text-lg md:text-xl font-bold text-slate-700 flex items-center gap-2">
-            <Clock size={22} className="text-emerald-500" />
-            อัปเดตย้อนหลัง
-          </h4>
-
           <div className="flex gap-2">
             <button
               onClick={() => scrollContainer("left")}

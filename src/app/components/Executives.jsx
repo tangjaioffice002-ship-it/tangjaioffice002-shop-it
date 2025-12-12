@@ -1,132 +1,139 @@
 "use client";
 
 import { useState } from "react";
-import { Users } from "lucide-react";
+import { Users, Award } from "lucide-react";
 
+// ตรวจสอบข้อมูลตรงนี้
 const executives = [
-  { name: "นายสนั่น สุตัญตั้งใจ", title: "ประธานบริษัท", photo: "/img/01.jpg" },
+  {
+    name: "นายสนั่น สุตัญตั้งใจ",
+    title: "ประธานบริษัท",
+    photo: "/img/01.jpg", // เช็คว่ามีรูปนี้ในโฟลเดอร์ public/img จริงไหม
+    quote: "วิสัยทัศน์ที่กว้างไกล นำพาองค์กรสู่ความเป็นเลิศอย่างยั่งยืน",
+  },
 ];
 
 export default function Executives() {
   const [previewImg, setPreviewImg] = useState(null);
 
   return (
-    <section className="relative w-full py-20 overflow-hidden bg-slate-50 font-sans">
-
-      {/* BG Decoration */}
+    <section className="relative w-full py-20 md:py-28 overflow-hidden bg-slate-50 font-sans">
+      
+      {/* --- BG Decoration --- */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-60 [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"></div>
-
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
+        <div className="absolute h-full w-full bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:32px_32px] opacity-30 mask-[linear-gradient(to_bottom,black_60%,transparent)]"></div>
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-amber-200/30 rounded-full blur-[120px] mix-blend-multiply"></div>
+        <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-emerald-200/30 rounded-full blur-[120px] mix-blend-multiply"></div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
-
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-emerald-100 text-emerald-600 text-xs font-bold uppercase tracking-wider mb-5 shadow-sm">
-            <Users size={14} />
-            <span>Executive Team</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        
+        {/* --- Header --- */}
+        <div className="text-center mb-16 md:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-amber-200/60 text-amber-700 text-xs sm:text-sm font-bold uppercase tracking-widest mb-6 shadow-sm">
+            <Award size={16} className="text-amber-500" />
+            <span>Leadership Team</span>
           </div>
 
-          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 tracking-tight leading-tight">
+          <h3 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
             ผู้นำที่มี
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500"> ประสบการณ์</span>
+            <span className="relative whitespace-nowrap text-emerald-700 ml-3">
+              <span className="relative z-10">ประสบการณ์</span>
+              <svg
+                className="absolute -bottom-2 left-0 w-full h-3 text-emerald-300/60 -z-10"
+                viewBox="0 0 200 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+              >
+                <path d="M2.5 7.5C25 2.5 75 -2.5 197.5 7.5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </span>
           </h3>
-
-          <div className="w-20 h-1.5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mx-auto opacity-80"></div>
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+            ขับเคลื่อนองค์กรด้วยวิสัยทัศน์และความมุ่งมั่น เพื่อสร้างการเติบโตที่ยั่งยืน
+          </p>
         </div>
 
-        {/* Cards Centered */}
-        <div className="grid md:grid-cols-1 gap-10 place-items-center">
-
+        {/* --- Cards Container --- */}
+        <div className="flex flex-wrap justify-center gap-8 sm:gap-12 pb-10">
           {executives.map((e, i) => (
             <div
               key={i}
-              className="group relative bg-white p-10 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-emerald-100/40 hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col md:flex-row gap-10 items-center w-full md:w-[60%]"
+              className="group relative w-full max-w-[400px] bg-white rounded-[2.5rem] p-8 sm:p-10 shadow-xl shadow-slate-200/50 border border-slate-100 hover:shadow-2xl hover:shadow-emerald-100/60 hover:-translate-y-3 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] flex flex-col items-center text-center overflow-hidden"
             >
+              {/* Decorative Gradients */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white opacity-100 transition-opacity duration-500 -z-20"></div>
+              <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-emerald-50/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
 
-              {/* Image */}
-              <div className="relative shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-300 to-teal-300 rounded-full blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-[1.5rem] rotate-3 group-hover:rotate-12 transition-transform duration-500 ease-out opacity-100 border border-emerald-50"></div>
-
+              {/* Image Container */}
+              <div className="relative mb-8 sm:mb-10 group-hover:scale-[1.02] transition-transform duration-500">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-amber-300/40 to-emerald-300/40 rounded-full blur-2xl opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
+                
                 <div
-                  className="relative w-36 h-36 rounded-[1.5rem] overflow-hidden ring-4 ring-white shadow-md group-hover:scale-105 transition-transform duration-500 cursor-pointer bg-slate-200"
+                  className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-60 md:h-60 rounded-full overflow-hidden ring-[6px] ring-white shadow-lg cursor-pointer mx-auto bg-slate-200"
                   onClick={() => setPreviewImg(e.photo)}
                 >
+                  {/* รูปภาพ - ตรวจสอบ path ดีๆ */}
                   <img
                     src={e.photo}
                     alt={e.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                      e.target.style.display = 'none'; // ซ่อนรูปถ้าโหลดไม่ได้
+                    }}
                   />
+                  {/* Fallback กรณีรูปไม่ขึ้น จะได้ไม่โล่ง */}
+                  <div className="absolute inset-0 flex items-center justify-center -z-10 text-slate-400">
+                    No Image
+                  </div>
 
-                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
               </div>
 
-              {/* Text */}
-              <div className="flex-1 text-center md:text-left">
-                <h4
-                  className="font-bold text-2xl text-slate-800 mb-3 group-hover:text-emerald-700 transition-colors duration-300 whitespace-nowrap"
-                >
+              {/* Text Content */}
+              <div className="relative z-10 w-full">
+                <h4 className="font-bold text-2xl sm:text-3xl text-slate-900 mb-2 group-hover:text-emerald-800 transition-colors duration-300">
                   {e.name}
                 </h4>
 
-                <div className="inline-block px-4 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-sm font-medium mb-5 border border-emerald-100 whitespace-nowrap">
+                <div className="inline-block px-5 py-1.5 rounded-full bg-amber-50 text-amber-800 text-base font-semibold mb-6 border border-amber-100/80 shadow-sm">
                   {e.title}
                 </div>
-
-                <div className="h-1.5 w-14 mx-auto md:mx-0 bg-slate-100 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-emerald-400 to-teal-400 w-1/3 group-hover:w-full transition-all duration-700 ease-out"></div>
-                </div>
+                
+                {e.quote && (
+                  <div className="relative px-2">
+                    <p className="text-slate-600 italic text-base sm:text-lg leading-relaxed relative z-10">
+                       "{e.quote}"
+                    </p>
+                  </div>
+                )}
               </div>
-
+              
+              {/* Bottom Decorative Line */}
+               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-1.5 bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-400 rounded-t-full opacity-30 group-hover:w-2/3 group-hover:opacity-80 transition-all duration-700 ease-out"></div>
             </div>
           ))}
-
         </div>
       </div>
 
-      {/* Modal */}
-      {previewImg && (
-        <div
-          className="fixed inset-0 bg-slate-900/80 backdrop-blur-md flex justify-center items-center z-[999] animate-fadeIn p-4"
-          onClick={() => setPreviewImg(null)}
-        >
-          <div
-            className="relative bg-white rounded-2xl p-2 shadow-2xl border-2 border-yellow-400/80 max-w-[90vw] md:max-w-[60vw] max-h-[70vh] overflow-hidden animate-zoomIn"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={previewImg}
-              alt="Preview"
-              className="w-auto h-auto max-h-[60vh] object-contain rounded-xl mx-auto"
-            />
+      {/* --- Modal --- */}
+     
 
-            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-xs text-white/90 bg-black/50 px-4 py-1.5 rounded-full backdrop-blur-sm">
-              Click outside to close
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Animations */}
+      {/* --- Styles --- */}
       <style jsx>{`
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
         }
         @keyframes zoomIn {
-          from { opacity: 0; transform: scale(0.95); }
+          from { opacity: 0; transform: scale(0.92); }
           to { opacity: 1; transform: scale(1); }
         }
-        .animate-fadeIn { animation: fadeIn 0.2s ease-out; }
-        .animate-zoomIn { animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .animate-fadeIn { animation: fadeIn 0.3s ease-out; }
+        .animate-zoomIn { animation: zoomIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
       `}</style>
-
     </section>
   );
 }

@@ -13,7 +13,6 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
 
-        {/* Grid Responsive */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 mb-14">
 
           {/* --- Column 1: Brand --- */}
@@ -38,20 +37,14 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* --- Column 2: Menu (Mobile = same, Desktop = vertical list) --- */}
+          {/* --- Column 2: Menu --- */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left w-full">
             <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-5">
               เมนูหลัก
             </h3>
 
-            {/* --- MOBILE (แบบเดิม 2 คอลัมน์) --- */}
-            <div
-              className="
-                w-full grid grid-cols-2 gap-3 
-                p-4 rounded-xl bg-white/60 shadow-sm 
-                sm:hidden
-              "
-            >
+            {/* Desktop Menu */}
+            <ul className="hidden sm:flex flex-col space-y-3 text-sm">
               {[
                 { label: "หน้าแรก", href: "#home" },
                 { label: "สินค้าและบริการ", href: "#Services" },
@@ -59,33 +52,19 @@ export default function Footer() {
                 { label: "ข่าวสาร", href: "#News" },
                 { label: "ติดต่อเรา", href: "#Contact" },
               ].map((link, i) => (
-                <a
-                  key={i}
-                  href={link.href}
-                  className="
-                    flex items-center gap-2
-                    text-sm text-slate-700 font-medium
-                    hover:text-emerald-600
-                    transition-all duration-300 group
-                  "
-                >
-                  <ArrowRight
-                    size={14}
-                    className="
-                      text-emerald-500 opacity-0 
-                      -translate-x-2 group-hover:translate-x-0 
-                      group-hover:opacity-100 transition-all duration-300
-                    "
-                  />
-                  <span className="group-hover:translate-x-1 transition-transform">
+                <li key={i}>
+                  <a
+                    href={link.href}
+                    className="text-slate-700 hover:text-emerald-600 transition"
+                  >
                     {link.label}
-                  </span>
-                </a>
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
 
-            {/* --- DESKTOP (ใหม่ เรียงลงมาเป็นแถว) --- */}
-            <ul className="hidden sm:flex flex-col space-y-3 w-full max-w-xs">
+            {/* Mobile Menu - (เหลือชุดเดียว) */}
+            <ul className="sm:hidden grid grid-cols-1 gap-3 w-full">
               {[
                 { label: "หน้าแรก", href: "#home" },
                 { label: "สินค้าและบริการ", href: "#Services" },
@@ -97,28 +76,27 @@ export default function Footer() {
                   <a
                     href={link.href}
                     className="
-                      flex items-center gap-3
-                      p-2 rounded-lg
-                      text-sm text-slate-700 font-medium
-                      hover:text-emerald-600 hover:bg-emerald-50
-                      transition-all duration-300 group
+                      flex items-center justify-between
+                      p-3 rounded-xl bg-white 
+                      border border-slate-200 shadow-sm
+                      active:scale-[0.97] active:bg-emerald-50
+                      hover:bg-emerald-50 
+                      transition-all duration-300
                     "
                   >
-                    <ArrowRight
-                      size={15}
-                      className="
-                        text-emerald-500 opacity-0 
-                        -translate-x-3 group-hover:translate-x-0 
-                        group-hover:opacity-100 transition-all
-                      "
-                    />
-                    <span className="group-hover:translate-x-1 transition-transform">
+                    <span className="text-sm font-medium text-slate-700">
                       {link.label}
                     </span>
+
+                    <ArrowRight
+                      size={16}
+                      className="text-emerald-500 opacity-70 transition-all duration-300"
+                    />
                   </a>
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* --- Column 3: Contact --- */}
@@ -185,7 +163,7 @@ export default function Footer() {
                   <Facebook size={16} fill="currentColor" />
                 </div>
 
-                <div className="flex flex-col leading-tight">
+                <div className="flex flex-col justify-center items-start text-left leading-tight h-[32px]">
                   <span className="text-xs font-bold text-slate-700 group-hover:text-[#1877F2]">
                     Facebook
                   </span>
