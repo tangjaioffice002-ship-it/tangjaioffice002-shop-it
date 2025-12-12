@@ -78,7 +78,7 @@ export default function Services() {
           </h3>
 
           <p className="mt-6 text-slate-500 text-lg md:text-xl max-w-2xl mx-auto">
-            เราให้บริการจัดหาครุภัณฑ์และติดตั้งระบบครบวงจร ด้วยมาตรฐานระดับมืออาชีพ
+            เราให้บริการจัดหาครุภัณฑ์และติดตั้งระบบ <br />ครบวงจร ด้วยมาตรฐานระดับมืออาชีพ
           </p>
         </div>
 

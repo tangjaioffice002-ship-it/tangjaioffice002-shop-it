@@ -99,9 +99,9 @@ export default function Footer() {
 
           </div>
 
-          {/* --- Column 3: Contact --- */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-5">
+
+            <h3 className="text-sm font-bold uppercase tracking-wider text-[#1e293b] mb-5">
               ข้อมูลติดต่อ
             </h3>
 
@@ -109,7 +109,7 @@ export default function Footer() {
 
               <li className="flex items-start gap-3 p-3 bg-white/70 sm:bg-transparent rounded-lg shadow-sm sm:shadow-none">
                 <MapPin className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span>
+                <span className="text-[#1e293b]">
                   311 หมู่ 4 บ้านเพียเพ้า ต.คำน้ำแซบ <br />
                   อ.วารินชำราบ จ.อุบลราชธานี 34190
                 </span>
@@ -117,7 +117,8 @@ export default function Footer() {
 
               <li className="flex items-center gap-3 p-3 bg-white/70 sm:bg-transparent rounded-lg shadow-sm sm:shadow-none">
                 <Phone className="w-5 h-5 text-emerald-600 shrink-0" />
-                <a href="tel:0824740111" className="hover:text-emerald-600 transition">
+                <a href="tel:0824740111"
+                  className="transition text-[#1e293b] hover:text-emerald-600">
                   082-4740111
                 </a>
               </li>
@@ -126,7 +127,7 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-emerald-600 shrink-0" />
                 <a
                   href="mailto:tangjaisut441@gmail.com"
-                  className="hover:text-emerald-600 transition break-all"
+                  className="transition break-all text-[#1e293b] hover:text-emerald-600"
                 >
                   tangjaisut441@gmail.com
                 </a>
@@ -135,6 +136,7 @@ export default function Footer() {
             </ul>
           </div>
 
+
           {/* --- Column 4: Social --- */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-5">
@@ -142,7 +144,7 @@ export default function Footer() {
             </h3>
 
             <p className="text-sm text-slate-500 mb-4 max-w-xs">
-              ติดตามข่าวสารและโปรโมชั่นล่าสุดผ่านช่องทางโซเชียลมีเดียของเรา
+              ติดตามข่าวสารและโปรโมชั่นล่าสุดผ่านช่องทาง <br /> โซเชียลมีเดียของเรา
             </p>
 
             <div className="flex flex-col space-y-3 w-full max-w-xs">

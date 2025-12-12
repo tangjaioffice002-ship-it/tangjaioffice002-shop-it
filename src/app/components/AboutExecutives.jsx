@@ -53,10 +53,10 @@ export default function AboutExecutives() {
               <span>เกี่ยวกับ TANGJAI</span>
             </div>
 
-            <h2 className="text-center text-3xl md:text-4xl font-bold leading-snug">
+            <h2 className="text-center text-3xl md:text-4xl font-bold leading-snug text-[#0f172a]">
               โครงสร้างองค์กร
               <br className="block md:hidden" />
-              <span className="text-emerald-600 md:ml-2">และความเป็นมา</span>
+              <span className="text-[#059669] md:ml-2">และความเป็นมา</span>
             </h2>
           </div>
 
@@ -71,10 +71,9 @@ export default function AboutExecutives() {
                     relative flex items-center justify-center gap-2 px-5 py-3 rounded-full
                     text-sm md:text-base font-medium transition-all duration-300
                     whitespace-nowrap border 
-                    ${
-                      activeTab === tab.id
-                        ? "text-white border-transparent scale-[1.07] shadow-md shadow-emerald-200"
-                        : "text-slate-600 bg-white border-slate-200 shadow-sm hover:bg-slate-100"
+                    ${activeTab === tab.id
+                      ? "text-white border-transparent scale-[1.07] shadow-md shadow-emerald-200"
+                      : "text-slate-600 bg-white border-slate-200 shadow-sm hover:bg-slate-100"
                     }
                   `}
                 >
@@ -83,9 +82,8 @@ export default function AboutExecutives() {
                   )}
 
                   <tab.icon
-                    className={`w-4 h-4 md:w-5 md:h-5 ${
-                      activeTab === tab.id ? "text-white" : "opacity-70"
-                    }`}
+                    className={`w-4 h-4 md:w-5 md:h-5 ${activeTab === tab.id ? "text-white" : "opacity-70"
+                      }`}
                   />
                   <span>{tab.label}</span>
                 </button>
@@ -97,7 +95,7 @@ export default function AboutExecutives() {
           <div className="max-w-7xl mx-auto animate-fadeInUp">
 
             <div
-             className="bg-white rounded-3xl shadow-xl p-1 md:p-5 max-w-4xl mx-auto h-180">
+              className="bg-white rounded-3xl shadow-xl p-1 md:p-5 max-w-4xl mx-auto h-180">
               {/* Content */}
               <div className="px-2 py-5 sm:px-3 sm:py-8 md:px-4 md:py-12">
                 <AnimatePresence mode="wait">
