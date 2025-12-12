@@ -5,10 +5,7 @@ import { Building2, Award, History } from "lucide-react";
 export default function HistoryPage() {
   return (
     <main
-      className="relative max-w-4xl mx-auto px-6 py-24"
-      style={{
-        background: "linear-gradient(to bottom, #ffffff, #e8f7ef)",
-      }}
+      className="relative max-w-4xl mx-auto px-6 py-4"
     >
       {/* Soft Background Glow */}
       <div className="absolute inset-0 pointer-events-none opacity-40 -z-10">
@@ -18,13 +15,11 @@ export default function HistoryPage() {
 
       {/* Header */}
       <div className="text-center mb-16">
-        {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-700 px-4 py-1.5 rounded-full shadow-sm font-medium">
           <History className="w-4 h-4" />
           ประวัติความเป็นมา
         </div>
 
-        {/* Title */}
         <h1 className="text-4xl font-extrabold mt-6 text-slate-800 tracking-tight leading-snug">
           เกี่ยวกับ{" "}
           <span className="text-emerald-600 underline underline-offset-[10px] decoration-emerald-300 decoration-4">
@@ -41,8 +36,6 @@ export default function HistoryPage() {
 
       {/* Section */}
       <section className="space-y-12">
-
-        {/* จุดเริ่มต้น */}
         <div className="bg-white rounded-3xl shadow-lg p-10 border border-slate-100 transition hover:shadow-2xl hover:-translate-y-1 duration-300">
           <div className="flex items-center gap-3 mb-3">
             <Building2 className="w-7 h-7 text-emerald-600" />
@@ -58,7 +51,6 @@ export default function HistoryPage() {
             และการบริการหลังการขายที่รวดเร็ว
           </p>
         </div>
-
       </section>
     </main>
   );

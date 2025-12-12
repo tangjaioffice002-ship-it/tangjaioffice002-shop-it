@@ -30,22 +30,18 @@ export default function Standards() {
   return (
     <section
       id="standards"
-      className={`${prompt.className} scroll-mt-24 py-24 relative overflow-hidden`}
-      style={{
-        fontFamily: "'Prompt', sans-serif",
-        background: "linear-gradient(to bottom, #ffffff, #e8f7ef)",
-      }}
+      className={`${prompt.className} scroll-mt-24 py-4 md:py-4 relative overflow-hidden bg-white`}
     >
       {/* Soft Background Glow */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
-        <div className="absolute -top-[15%] -right-[10%] w-[450px] h-[450px] bg-emerald-100/50 rounded-full blur-3xl"></div>
-        <div className="absolute top-[40%] -left-[15%] w-[380px] h-[380px] bg-teal-100/50 rounded-full blur-3xl"></div>
+        <div className="absolute -top-[15%] -right-[10%] w-[450px] h-[450px] bg-emerald-50/60 rounded-full blur-3xl"></div>
+        <div className="absolute top-[40%] -left-[15%] w-[380px] h-[380px] bg-teal-50/60 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12"> {/* ลด margin bottom เล็กน้อยด้วย (จาก mb-16 เป็น mb-12) */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 border border-amber-200 text-amber-700 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
             <CheckCircle2 size={14} />
             <span>LEADERSHIP TEAM</span>
@@ -75,7 +71,7 @@ export default function Standards() {
               <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
 
                 {/* Image Block */}
-                <div className="relative w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-xl shadow-sm bg-slate-100">
+                <div className="relative w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-xl shadow-sm bg-slate-50 border border-slate-100">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -115,37 +111,43 @@ export default function Standards() {
         </div>
       </div>
 
-      {/* Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 backdrop-blur-md"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative max-w-3xl mx-auto">
-            <button
-              className="absolute -top-5 -right-5 bg-white border border-slate-200 rounded-full p-2 shadow-lg hover:bg-red-50 hover:text-red-600 transition"
-              onClick={() => setSelectedImage(null)}
-            >
-              <X size={20} />
-            </button>
+     {/* Modal */}
+{selectedImage && (
+  <div
+    className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-200"
+    onClick={() => setSelectedImage(null)}
+  >
+    {/* ใช้ w-fit เพื่อให้กล่องนี้หดขนาดเท่ากับรูปภาพข้างใน 
+      และ relative เพื่อให้ปุ่มปิดอ้างอิงตำแหน่งจากกล่องนี้
+    */}
+    <div className="relative w-fit max-w-full max-h-full mt-24">
+      
+      {/* ปุ่มปิด (ตอนนี้จะเกาะติดมุมขวาบนของรูปพอดี) */}
+      <button
+        className="absolute -top-4 -right-4 bg-white text-slate-700 border-2 border-slate-100 rounded-full p-2 shadow-lg hover:bg-red-50 hover:text-red-600 hover:scale-110 transition-all z-20"
+        onClick={() => setSelectedImage(null)}
+      >
+        <X size={24} />
+      </button>
 
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white p-2 rounded-xl border-2 border-amber-300 shadow-2xl"
-            >
-              <img
-                src={selectedImage}
-                alt="certificate"
-                className="max-h-[70vh] object-contain rounded-lg"
-              />
-            </div>
+      {/* ตัวกรอบรูป:
+         - w-fit: ให้กรอบหดเท่ารูป
+         - p-1: เว้นระยะนิดหน่อยให้เห็นสีขาวเป็นเส้นขอบ (ถ้าอยากให้ติดเนื้อรูปเลยให้แก้เป็น p-0)
+      */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white p-1 rounded-xl border-[3px] border-yellow-400 shadow-[0_0_50px_-5px_rgba(250,204,21,0.6)] w-fit mx-auto overflow-hidden animate-in zoom-in-95 duration-300"
+      >
+        <img
+          src={selectedImage}
+          alt="certificate"
+          className="max-h-[75vh] w-auto object-contain block" 
+        />
+      </div>
 
-            <p className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-xs text-white/80 bg-black/30 px-4 py-1 rounded-full backdrop-blur-sm">
-              Click outside to close
-            </p>
-          </div>
-        </div>
-      )}
+    </div>
+  </div>
+)}
     </section>
   );
 }

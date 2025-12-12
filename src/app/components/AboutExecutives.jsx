@@ -97,10 +97,7 @@ export default function AboutExecutives() {
           <div className="max-w-7xl mx-auto animate-fadeInUp">
 
             <div
-             className="bg-white rounded-3xl shadow-xl p-6 md:p-5 max-w-5xl mx-auto">
-
-           
-            
+             className="bg-white rounded-3xl shadow-xl p-1 md:p-5 max-w-4xl mx-auto h-150">
               {/* Content */}
               <div className="px-2 py-5 sm:px-3 sm:py-8 md:px-4 md:py-12">
                 <AnimatePresence mode="wait">
