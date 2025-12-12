@@ -1,6 +1,7 @@
 "use client";
 
-import { Target, Compass, HeartHandshake, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { Target, Compass, HeartHandshake, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { Prompt } from "next/font/google";
 
 const prompt = Prompt({
@@ -26,6 +27,11 @@ export default function Vision() {
       desc: "คุณภาพ • ความโปร่งใส • ความรับผิดชอบ • ความเป็นมืออาชีพ",
     },
   ];
+
+  const [index, setIndex] = useState(0);
+
+  const nextSlide = () => setIndex((prev) => (prev + 1) % items.length);
+  const prevSlide = () => setIndex((prev) => (prev - 1 + items.length) % items.length);
 
   return (
     <section
@@ -54,70 +60,83 @@ export default function Vision() {
           </p>
         </div>
 
-       {/* Cards (Mobile = Horizontal Scroll | Desktop = Grid) */}
-<div>
+        {/* -------------------- Mobile Slider (No Scrollbar) -------------------- */}
+        <div className="md:hidden relative flex flex-col items-center">
 
-{/* 📱 Mobile: Horizontal Scroll แบบดีไซน์ใหม่ */}
-<div className="md:hidden flex gap-5 overflow-x-auto snap-x snap-mandatory pb-3 px-1 h-90 ">
-  {items.map((item, index) => (
-    <div
-      key={index}
-      className="relative min-w-[300px] snap-center flex-shrink-0 bg-white 
-                 rounded-3xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.06)]
-                 border border-slate-100 transition-all duration-500
-                 hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1"
-    >
-      {/* Green Bottom Bar */}
-      <div className="absolute left-0 bottom-0 w-24 h-1.5 bg-emerald-400 rounded-r-xl"></div>
+          {/* Slide Card */}
+          <div className="w-full">
+            <div
+              className="bg-white rounded-3xl p-6 shadow-md border border-slate-200/60
+                         text-center flex flex-col items-center transition-all duration-500 min-h-[260px]"
+            >
+             
 
-      {/* Content */}
-      <div className="flex items-start gap-4">
-        {/* Icon Box */}
-        <div className="w-12 h-12 rounded-xl bg-emerald-50 
-                        flex items-center justify-center text-emerald-600 shadow-inner">
-          <item.icon size={24} strokeWidth={1.5} />
+              <h2 className="text-lg font-bold text-slate-800 mb-2">
+                {items[index].title}
+              </h2>
+
+              <p className="text-slate-500 text-sm leading-relaxed">
+                {items[index].desc}
+              </p>
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex justify-between w-full mt-5 px-6">
+            <button
+              onClick={prevSlide}
+              className="p-2 rounded-full bg-white shadow-md border border-slate-200 active:scale-95"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="p-2 rounded-full bg-white shadow-md border border-slate-200 active:scale-95"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex gap-2 mt-4">
+            {items.map((_, i) => (
+              <div
+                key={i}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  i === index ? "bg-emerald-600 w-4" : "bg-slate-300"
+                }`}
+              ></div>
+            ))}
+          </div>
         </div>
 
-        {/* Texts */}
-        <div className="text-left flex-1">
-          <h2 className="text-base font-bold text-slate-800 mb-1">
-            {item.title}
-          </h2>
-          <p className="text-slate-500 text-sm leading-relaxed">
-            {item.desc}
-          </p>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-  {/* 🖥 Desktop Grid (3 Columns - Premium Style) */}
-  <div className="hidden md:grid grid-cols-3 gap-8">
-    {items.map((item, index) => (
-      <div
-        key={index}
-        className="group bg-white rounded-3xl p-8 shadow-md border border-slate-200/60
-                   text-center h-full flex flex-col items-center 
-                   transition-all duration-500
-                   hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-300/60"
-      >
-        <div className="mb-5 w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center 
-                        text-emerald-600 shadow-inner group-hover:bg-emerald-100 transition">
-          <item.icon size={32} strokeWidth={1.5} />
+        {/* -------------------- Desktop Grid -------------------- */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-0">
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className="group bg-white rounded-3xl p-8 shadow-md border border-slate-200/60
+                         text-center h-full flex flex-col items-center 
+                         transition-all duration-500
+                         hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-300/60"
+            >
+              <div className="mb-5 w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center 
+                              text-emerald-600 shadow-inner group-hover:bg-emerald-100 transition">
+                <item.icon size={32} strokeWidth={1.5} />
+              </div>
+
+              <h2 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-700 transition">
+                {item.title}
+              </h2>
+
+              <p className="text-slate-500 text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <h2 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-700 transition">
-          {item.title}
-        </h2>
-
-        <p className="text-slate-500 text-sm leading-relaxed">
-          {item.desc}
-        </p>
-      </div>
-    ))}
-  </div>
-
-</div>
       </div>
     </section>
   );
